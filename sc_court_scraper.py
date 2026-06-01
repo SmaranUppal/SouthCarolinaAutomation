@@ -403,6 +403,9 @@ def scrape_county(browser, county: str) -> list:
         # postback that briefly wipes the DOM, so we wait for the page
         # to fully settle before touching anything else.
         set_select(page, 2, ["App/Trans/Rts", "App/Trans/Rt", "App/Trns/Rts", "App/Trns/Rt"])
+        
+        
+
         # Wait for selects to reappear after the ASP.NET postback
         # Use locator-based wait — CSP blocks eval-based wait_for_function
         page.locator("select").nth(6).wait_for(state="visible", timeout=30_000)
